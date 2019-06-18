@@ -1,1 +1,1 @@
-Get-ChildItem -file | Where-Object { $_.Length -ge 20000 }
+Get-ChildItem -file | Where-Object { $_.Length -ge 200 }

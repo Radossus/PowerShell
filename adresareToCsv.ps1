@@ -1,0 +1,1 @@
+Get-ChildItem -Directory -Path C:\Users | Select-Object -Property Name, Mode, LastWriteTime | ConvertTo-Csv -NoTypeInformation -Delimiter ';'
