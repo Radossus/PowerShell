@@ -1,7 +1,14 @@
-param($jmenoProcesu)
+
+param(
+   
+    [Parameter()]
+    $jmenoProcesu
+)
+
 if($jmenoProcesu){
-    Get-Process -Name $jmenoProcesu
-}else {
+   Get-Process -Name $jmenoProcesu
+}
+else {
     Write-Output "Při volání skriptu musí být zadán vstupní parametr 'Jméno procesu'!"
 }
 
