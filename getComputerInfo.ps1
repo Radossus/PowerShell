@@ -1,19 +1,3 @@
-<#function get-ObecnaData {
-    
-    # Vstup uzivatele
-    param(
-        [Parameter()]
-        [Alias('cn','pc')]
-        $ComputerName,
-        [Parameter()]
-        [Alias('cl')]
-        $Class
-    )
-    "Computer Name: $computerName"
-    "Class: $class"
-   
-} #>
-
 #You have to use Enable-PSRemoting to enable Windows PowerShell remoting on Servers!
 function Get-InfoOS {
     [CmdletBinding()]
