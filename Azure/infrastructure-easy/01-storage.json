@@ -35,5 +35,14 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+        "RG": {
+            "type": "string",
+            "value":"[resourceGroup().id]"
+        },
+        "unigueStringRG": {
+            "type": "string",
+            "value": "[uniqueString(resourceGroup().id)]"
+        }
+    }
 }
