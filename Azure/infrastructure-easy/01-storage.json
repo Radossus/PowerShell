@@ -5,7 +5,10 @@
         "storageName": {
             "type": "string",
             "minLength":3,
-            "maxLength":24
+            "maxLength":24,
+            "metadata": {
+                "description": "Unique DNS name of your storage account."
+            }
         },
         "storageSKU": {
             "type": "string",
@@ -19,16 +22,34 @@
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]
+        },
+        "location":{
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "stage": {
+            "type": "string",
+            "defaultValue":"test",
+            "allowedValues": [
+                "test",
+                "dev",
+                "prod"
+            ],
+            "metadata": {
+                "description" :"Environmet stage for deployment."
+            }
         }
     },
     "functions": [],
-    "variables": {},
+    "variables": {
+        "storageName": "[concat(parameters('storageName'),parameters('stage'))]"
+    },
     "resources": [
         {
-            "name": "[parameters('storageName')]",
+            "name": "[variables('storageName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "kind": "StorageV2",
             "sku": {
                 "name": "[parameters('storageSKU')]"
@@ -43,6 +64,10 @@
         "unigueStringRG": {
             "type": "string",
             "value": "[uniqueString(resourceGroup().id)]"
+        },
+        "storageName": {
+            "type": "string",
+            "value": "[variables('storageName')]"
         }
     }
 }
