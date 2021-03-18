@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "webAppName": {
+            "type": "string"
+        },
+        "planName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/serverfarm",
+            "apiVersion" : "2019-06-01",
+            "name" : "[parameters('planName')]",
+            "location" : "[resourceGroup().location]",
+            "sku" : {
+                "name":"S1"
+            }
+        }       
+    ],
+    "outputs": {}
+}

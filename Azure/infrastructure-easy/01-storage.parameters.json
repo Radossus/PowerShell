@@ -4,6 +4,15 @@
     "parameters": {
         "storageName": {
             "value" : "storagematric"
+        },
+        "storageSKU": {
+            "value" : "Standard_LRS"
+        },
+        "location": {
+            "value": null
+        },
+        "stage": {
+            "value": "test"
         }
     }
 }

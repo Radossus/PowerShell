@@ -5,7 +5,5 @@ New-AzResourceGroupDeployment `
     -Name 'new-storage' `
     -ResourceGroupName 'arm-infrastructure-easy' `
     -TemplateFile '01-storage.json' `
-    -storageName 'storaccoutmatric' `
-    -storageSKU 'Standard_LRS' `
-    -stage 'test'
-    
+    -TemplateParameterFile '01-storage.parameters.json' `
+    -location 'westeurope' 

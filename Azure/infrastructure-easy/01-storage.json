@@ -53,9 +53,20 @@
             "kind": "StorageV2",
             "sku": {
                 "name": "[parameters('storageSKU')]"
-            }
+            },
+            "resources": [
+                {
+                    "type": "blobServices/containers",
+                    "apiVersion": "2019-06-01",
+                    "name": "/default/input",
+                    "dependsOn": [
+                        "[variables('storageName')]"
+                    ]
+                }
+            ]
         }
     ],
+    
     "outputs": {
         "RG": {
             "type": "string",
